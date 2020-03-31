@@ -22,7 +22,7 @@ blocks:
             - pip install -r requirements_dev.txt
             - pip install .
     dependencies: []
-  - name: 'tests'
+  - name: tests
     dependencies:
       - requirements
     task:
@@ -30,20 +30,9 @@ blocks:
         - name: tests
           commands:
             - make test
-  - name: 'flakes'
-    dependencies:
-      - requirements
-    task:
-      jobs:
         - name: flakes
           commands:
             - make flakes
-  - name: 'pep8'
-    dependencies:
-      - requirements
-    task:
-      jobs:
         - name: pep8
           commands:
             - make pep8
-
