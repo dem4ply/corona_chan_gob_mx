@@ -9,7 +9,7 @@ blocks:
     task:
       prologue:
         commands:
-          - 'PATH=:PATH~/.local/bin'
+          - 'PATH=:$PATH~/.local/bin'
       jobs:
         - name: requirements
           matrix:
