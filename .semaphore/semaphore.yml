@@ -8,8 +8,8 @@ blocks:
   - name: requirements
     task:
       prologue:
-          commands:
-            - PATH=~/.local/bin
+        commands:
+          - 'PATH=:PATH~/.local/bin'
       jobs:
         - name: requirements
           matrix:
