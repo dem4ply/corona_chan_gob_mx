@@ -20,16 +20,9 @@ blocks:
             - checkout
             - python -m pip install --upgrade pip
             - pip install -r requirements_dev.txt
+            - pip -V
+            - pip3 -V
             - pip install -e ./
-        - name: tests
-          commands:
-            - make tests
-        - name: flakes
-          commands:
-            - make flakes
-        - name: pep8
-          commands:
-            - make pep8
     dependencies: []
   - name: 'Block #2'
     dependencies:
@@ -39,3 +32,9 @@ blocks:
         - name: pep8
           commands:
             - make pep8
+        - name: 'Job #2'
+          commands:
+            - make test
+        - name: 'Job #3'
+          commands:
+            - make flakes
