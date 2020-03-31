@@ -24,17 +24,17 @@ blocks:
             - pip3 -V
             - pip install -e ./
     dependencies: []
-  - name: 'Block #2'
+  - name: tests
     dependencies:
       - requirements
     task:
       jobs:
+        - name: tests
+          commands:
+            - make test
         - name: pep8
           commands:
             - make pep8
-        - name: 'Job #2'
-          commands:
-            - make test
-        - name: 'Job #3'
+        - name: flakes
           commands:
             - make flakes
