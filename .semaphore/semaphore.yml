@@ -7,6 +7,9 @@ agent:
 blocks:
   - name: requirements
     task:
+      prologue:
+          commands:
+            - PATH=~/.local/bin
       jobs:
         - name: requirements
           matrix:
@@ -20,9 +23,8 @@ blocks:
             - checkout
             - python -m pip install --upgrade pip
             - pip install -r requirements_dev.txt
-            - pip list
             - pip install -e ./
-            - pip list
+            - echo $PATH
             - make test
             - make style_test
     dependencies: []
