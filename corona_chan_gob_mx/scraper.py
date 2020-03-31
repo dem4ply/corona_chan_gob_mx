@@ -8,7 +8,6 @@ from chibi.snippet.iter import chunks
 from chibi.snippet.dict import replace_keys
 
 
-
 def pdf_to_dicts( pdf_link ):
     temp_dir = Chibi_temp_path()
     pdf = pdf_link.download( temp_dir )
@@ -56,7 +55,7 @@ class Find_pdfs( Response ):
 class Pdf_url( Chibi_url ):
     def get( self, *args, **kw ):
         data = pdf_to_dicts( self )
-        response = Response()
+        response = Response( response=object(), url=self )
         response._native = data
         return response
 
