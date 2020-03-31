@@ -18,7 +18,6 @@ requirements = [
 setup(
     author="dem4ply",
     author_email='dem4ply@gmail.com',
-    python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',

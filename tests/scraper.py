@@ -36,7 +36,7 @@ class Test_scraper( VCRTestCase ):
 
     def test_pdf_link_should_use_the_get_for_get_data( self ):
         links = list_of_pdf.get()
-        for link in links:
+        for link in links.native:
             response = link.get()
             self.assertIsInstance( response.native, list )
             for t in response.native:
