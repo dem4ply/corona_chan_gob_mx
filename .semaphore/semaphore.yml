@@ -1,0 +1,48 @@
+version: v1.0
+name: Python
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: requirements
+    task:
+      jobs:
+        - name: requirements
+          matrix:
+            - env_vars: PYTHON_VERSION
+              values:
+                - '3.5'
+                - '3.6'
+                - '3.7'
+          commands:
+            - sem-version python $PYTHON_VERSION
+            - checkout
+            - python -m pip install --upgrade pip
+            - pip install -r requirements_dev.txt
+    dependencies: []
+  - name: 'tests'
+    dependencies:
+      - requirements
+    task:
+      jobs:
+        - name: tests
+          commands:
+            - make test
+  - name: 'flakes'
+    dependencies:
+      - requirements
+    task:
+      jobs:
+        - name: flakes
+          commands:
+            - make flakes
+  - name: 'pep8'
+    dependencies:
+      - requirements
+    task:
+      jobs:
+        - name: pep8
+          commands:
+            - make pep8
+
