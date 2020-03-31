@@ -12,7 +12,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'chibi-requests>=0.3.3' 'PyPDF2>=1.26.0', 'camelot-py[cv]>=0.7.3'
+    'chibi-requests>=0.3.3', 'PyPDF2>=1.26.0', 'camelot-py[cv]>=0.7.3'
 ]
 
 setup(
