@@ -10,23 +10,12 @@ blocks:
       jobs:
         - name: requirements
           matrix:
-            - env_vars: PYTHON_VERSION
+            - env_var: PYTHON_VERSION
               values:
                 - '3.5'
                 - '3.6'
                 - '3.7'
-            - env_var: FOO
-              values:
-                - A
-                - B
-                - C
-            - env_var: BAR
-              values:
-                - '1'
-                - '2'
-                - '3'
           commands:
-            - echo FOO=$FOO BAR=$BAR
             - sem-version python $PYTHON_VERSION
             - checkout
             - python -m pip install --upgrade pip
