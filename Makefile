@@ -94,7 +94,7 @@ open_report_firefox:
 
 pep8:
 	@echo "Running pep8 tests..."
-	@pep8 --statistics corona_chan_gob_mx tests
+	@pycodestyle --statistics corona_chan_gob_mx tests
 
 flakes:
 	@echo "Running flakes tests..."

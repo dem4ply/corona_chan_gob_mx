@@ -1,11 +1,8 @@
-import re
 import camelot
-from chibi_requests import Chibi_url, Response
-from chibi.file.temp import Chibi_temp_path
 from PyPDF2 import PdfFileReader
+from chibi.file.temp import Chibi_temp_path
 from chibi.snippet.string import remove_inner_space
-from chibi.snippet.iter import chunks
-from chibi.snippet.dict import replace_keys
+from chibi_requests import Chibi_url, Response
 
 
 def pdf_to_dicts( pdf_link ):

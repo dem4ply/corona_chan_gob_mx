@@ -1,7 +1,7 @@
-import unittest
-from corona_chan_gob_mx.scraper import list_of_pdf, pdf_to_dicts
 from chibi_requests import Chibi_url
 from vcr_unittest import VCRTestCase
+
+from corona_chan_gob_mx.scraper import list_of_pdf, pdf_to_dicts
 
 
 class Test_scraper( VCRTestCase ):
