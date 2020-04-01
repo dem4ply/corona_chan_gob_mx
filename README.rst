@@ -26,7 +26,7 @@ Features
 
 * le los pdf publicados en `casos de covid-19 en mexico <
   https://www.gob.mx/salud/documentos/coronavirus-covid-19-
-  comunicado-tecnico-diario-238449>`
+  comunicado-tecnico-diario-238449>`_
 * transforma las tablas de los pdf en listas de dicionarios para poder 
   ser procesadas en python de manera mas facil
 
