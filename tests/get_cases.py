@@ -1,5 +1,3 @@
-
-from chibi_requests import Chibi_url
 from vcr_unittest import VCRTestCase
 
 from corona_chan_gob_mx import get_today_cases

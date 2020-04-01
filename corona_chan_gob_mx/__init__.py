@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from functools import reduce
-from corona_chan_gob_mx.scraper import list_of_pdf, pdf_to_dicts
+
+from corona_chan_gob_mx.scraper import list_of_pdf
 
 
 def get_today_cases():
