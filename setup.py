@@ -40,6 +40,6 @@ setup(
     name='corona_chan_gob_mx',
     packages=find_packages(include=['corona_chan_gob_mx', 'corona_chan_gob_mx.*']),
     url='https://github.com/dem4ply/corona_chan_gob_mx',
-    version='0.0.1',
+    version='1.0.0',
     zip_safe=False,
 )
