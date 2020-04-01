@@ -2,6 +2,7 @@ from chibi_requests import Chibi_url
 from vcr_unittest import VCRTestCase
 
 from corona_chan_gob_mx.scraper import list_of_pdf, pdf_to_dicts
+from chibi.file.temp import Chibi_temp_path
 
 
 class Test_scraper( VCRTestCase ):
@@ -21,7 +22,9 @@ class Test_scraper( VCRTestCase ):
         result = list_of_pdf.get()
         self.assertTrue( result.native )
         for link in result.native:
-            table = pdf_to_dicts( link )
+            temp_folder = Chibi_temp_path()
+            pdf = link.download( temp_folder )
+            table = pdf_to_dicts( pdf )
             self.assertIsInstance( table, list )
             for t in table:
                 self.assertIsInstance( t, dict )

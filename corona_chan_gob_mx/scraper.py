@@ -5,9 +5,7 @@ from chibi.snippet.string import remove_inner_space
 from chibi_requests import Chibi_url, Response
 
 
-def pdf_to_dicts( pdf_link ):
-    temp_dir = Chibi_temp_path()
-    pdf = pdf_link.download( temp_dir )
+def pdf_to_dicts( pdf ):
     pdf_reader = PdfFileReader( pdf )
     tables = camelot.read_pdf(
         pdf, pages=f"1-{pdf_reader.numPages}", split_text=True )
@@ -51,7 +49,10 @@ class Find_pdfs( Response ):
 
 class Pdf_url( Chibi_url ):
     def get( self, *args, **kw ):
-        data = pdf_to_dicts( self )
+        temp_dir = Chibi_temp_path()
+        pdf = self.download( temp_dir )
+
+        data = pdf_to_dicts( pdf )
         response = Response( response=object(), url=self )
         response._native = data
         return response

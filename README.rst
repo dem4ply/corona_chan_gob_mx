@@ -14,8 +14,6 @@ corona_chan_gob_mx
         :alt: Documentation Status
 
 
-
-
 corona chan scraper for gob mx
 
 
@@ -26,12 +24,48 @@ corona chan scraper for gob mx
 Features
 --------
 
-* TODO
+* le los pdf publicados en `casos de covid-19 en mexico <
+  https://www.gob.mx/salud/documentos/coronavirus-covid-19-
+  comunicado-tecnico-diario-238449>`
+* transforma las tablas de los pdf en listas de dicionarios para poder 
+  ser procesadas en python de manera mas facil
 
-Credits
--------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+==========
+How to use
+==========
 
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+el uso basico seria con
+
+.. code-block:: python
+
+	import corona_chan_gob_mx import get_today_cases()
+	table = get_today_cases()
+	for row in table:
+		assert isinstance( row, dict )
+
+se puede adquirir la lista de pdfs con
+
+.. code-block:: python
+
+	import corona_chan_gob_mx.scraper import list_of_pdfs
+	links = list_of_pdfs.get()
+	print( links.native )
+	# [
+	#	'https://www.gob.mx/cms/uploads/attachment/file/544087/'
+	#	'Tabla_casos_sospechosos_COVID-19_2020.03.29.pdf',
+	#	'https://www.gob.mx/cms/uploads/attachment/file/544086/'
+	#	'Tabla_casos_positivos_COVID-19_resultado_InDRE_2020.03.29.pdf' ]
+	for link in links.native:
+		table = link.get()
+		for row in table.native:
+			assert isinstance( row, dict )
+
+para leer pdf sin descargarlos
+
+.. code-block:: python
+
+	import corona_chan_gob_mx.scraper import pdf_to_dicts
+	tabla = pdf_to_dict( "/path/to/pdf/tabla.pdf" )
+	for row in table:
+		assert isinstance( row, dict )
